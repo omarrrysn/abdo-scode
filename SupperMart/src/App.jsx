@@ -1,21 +1,23 @@
-import { useEffect, useState } from 'react';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import { Route, Routes, useLocation } from "react-router-dom";
 
-import Loader from './common/Loader';
-import PageTitle from './components/adminComponents/PageTitle';
+import Loader from "./common/Loader";
+import PageTitle from "./components/adminComponents/PageTitle";
 
+import ECommerce from "./pages/Dashboard/ECommerce";
+import FormElement from "./pages/Form/FormElements";
+import FormLayout from "./pages/Form/FormLayout";
 
+import DefaultLayout from "./common/layout/DefaultLayout";
+import Alerts from "./pages/UiElements/Alerts";
+import Buttons from "./pages/UiElements/Buttons";
+import SignIn from "./pages/Authentication/SignIn";
+import SignUp from "./pages/Authentication/SignUp";
 
-
-import ECommerce from './pages/Dashboard/ECommerce';
-import FormElement from './pages/Form/FormElements';
-import FormLayout from './pages/Form/FormLayout';
-
-import DefaultLayout from './common/layout/DefaultLayout';
-import Alerts from './pages/UiElements/Alerts';
-import Buttons from './pages/UiElements/Buttons';
-import SignIn from './pages/Authentication/SignIn';
-import SignUp from './pages/Authentication/SignUp';
+// Example Child Components for Overview
+import AddStore from "./pages/Dashboard/OverViewManager/AddStore";
+import AddCategory from "./pages/Dashboard/OverViewManager/AddCategory";
+import Overview from "./pages/Dashboard/OverViewManager/Overview";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -38,23 +40,18 @@ function App() {
           index
           element={
             <>
-              {/* <PageTitle title="eCommerce Dashboard | TailAdmin - Tailwind CSS Admin Dashboard Template" /> */}
-              <ECommerce />
+              <Overview/>
             </>
           }
         />
-        
-        <>
-        
-        <Route
-          path="/forms/form-elements"
-          element={
-            <>
-              {/* <PageTitle title="Form Elements | TailAdmin - Tailwind CSS Admin Dashboard Template" /> */}
-              <FormElement />
-            </>
-          }
-        />
+
+        <Route path="/overview" element={<Overview />}>
+          {/* Child routes for /overview */}
+          <Route path="addstore" element={<AddStore />} />
+          <Route path="addcategory" element={<AddCategory />} />
+        </Route>
+
+        <Route path="/forms/form-elements" element={<FormElement />} />
         <Route
           path="/forms/form-layout"
           element={
@@ -82,11 +79,7 @@ function App() {
             </>
           }
         />
-        </>
-     
-       
-        
-        
+
         <Route
           path="/auth/signin"
           element={
