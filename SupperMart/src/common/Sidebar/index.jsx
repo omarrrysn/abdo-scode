@@ -18,8 +18,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
 
   const links = [
     { name: 'Overview', icon: <HomeSvg />, to: '/' },
-    { name: 'Products', icon: <TilesSvg />, to: '/products' },
-    { name: 'Orders', icon: <OrdersSvg />, to: '/order' },
+    { name: 'Products', icon: <TilesSvg />, to: '/managerProducts' },
+    { name: 'Stores', icon: <OrdersSvg />, to: '/manageStores' },
     { name: 'Suppliers', icon: <SuppliersSvg />, to: '/suppliers' },
     { name: 'Employees', icon: <EmployeesSvg />, to: '/employees' },
     { name: 'Create Promocode', icon: <PromoCodeSvg />, to: '/promocode' },

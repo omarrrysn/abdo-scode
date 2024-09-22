@@ -4,7 +4,6 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import Loader from "./common/Loader";
 import PageTitle from "./components/adminComponents/PageTitle";
 
-import ECommerce from "./pages/Dashboard/ECommerce";
 import FormElement from "./pages/Form/FormElements";
 import FormLayout from "./pages/Form/FormLayout";
 
@@ -14,10 +13,9 @@ import Buttons from "./pages/UiElements/Buttons";
 import SignIn from "./pages/Authentication/SignIn";
 import SignUp from "./pages/Authentication/SignUp";
 
-// Example Child Components for Overview
-import AddStore from "./pages/Dashboard/OverViewManager/AddStore";
-import AddCategory from "./pages/Dashboard/OverViewManager/AddCategory";
-import Overview from "./pages/Dashboard/OverViewManager/Overview";
+import Overview from "./pages/Dashboard/Manager/Overview";
+import Products from "./pages/Dashboard/Manager/Products";
+import ManageStores from "./pages/Dashboard/Manager/ManageStores";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -40,16 +38,12 @@ function App() {
           index
           element={
             <>
-              <Overview/>
+              <Overview />
             </>
           }
         />
 
-        <Route path="/overview" element={<Overview />}>
-          {/* Child routes for /overview */}
-          <Route path="addstore" element={<AddStore />} />
-          <Route path="addcategory" element={<AddCategory />} />
-        </Route>
+        <Route path="/" element={<Overview />} />
 
         <Route path="/forms/form-elements" element={<FormElement />} />
         <Route
@@ -76,6 +70,24 @@ function App() {
             <>
               <PageTitle title="Buttons | TailAdmin - Tailwind CSS Admin Dashboard Template" />
               <Buttons />
+            </>
+          }
+        />
+        <Route
+          path="/managerProducts"
+          element={
+            <>
+              <PageTitle title="Manager - Products" />
+              <Products />
+            </>
+          }
+        />
+        <Route
+          path="/manageStores"
+          element={
+            <>
+              <PageTitle title="Manager - Stores" />
+              <ManageStores />
             </>
           }
         />
