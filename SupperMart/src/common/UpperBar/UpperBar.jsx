@@ -9,9 +9,9 @@ const UpperBar = ({ links, activeTab, onTabChange }) => {
             <li key={link.key}>
               <button
                 onClick={() => onTabChange(link.key)}
-                className={`px-4 py-2 rounded-md text-gray-800 dark:text-white transition-all duration-300 ease-in-out hover:bg-gray-200 dark:hover:bg-darkmode-hover hover:bg-graydark hover:text-white dark:hover:bg-white dark:hover:text-graydark  ${
+                className={`px-4 py-2 rounded-md text-gray-800 dark:text-white transition-all duration-300 ease-in-out hover:bg-gray-200 dark:hover:bg-darkmode-hover hover:bg-graydark hover:text-white dark:hover:bg-graydark   ${
                   activeTab === link.key
-                    ? "dark:bg-white dark:text-black-2  bg-graydark text-white"
+                    ? "dark:bg-graydark   bg-graydark text-white"
                     : ""
                 }`}
               >
